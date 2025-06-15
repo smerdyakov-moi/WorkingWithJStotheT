@@ -434,6 +434,7 @@ reset.onclick = () => {
     startTime = 0
     elapsedTime = 0
     isRunning = false
+    start.textContent = 'Start'
     time.innerText=`00:00:00:00`
     clearInterval(timer)
 }
