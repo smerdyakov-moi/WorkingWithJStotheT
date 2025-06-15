@@ -350,6 +350,30 @@
     game.increaseScore(60)
 
     console.log(`The current score is ${game.currentScore()}`) //Because we can not access the store variable as it is private
+
+    //Alternative to closure
+        class Game{
+        constructor(name){
+            this.name = name,
+            this.count = 0
+        }
+        increase(num){
+            this.count+=num
+            console.log(`+ ${num} pts.`)
+        }
+        decrease(num){
+            this.count-=num
+            console.log(`- ${num} pts.`)
+        }
+        result(){
+            console.log(`You currently have ${this.count} points`)
+        }
+    }
+
+    let p1 = new Game('Pragyan')
+    p1.increase(10)
+    p1.increase(20)
+    p1.result()
 */
 
 /* 
@@ -369,3 +393,64 @@
     }
 */
 
+/* 
+    ---- (8) Time Viewer ----
+    const clock = document.getElementById('clock')
+
+    function updClock(){
+        const now = new Date();
+        const hours = now.getHours()
+        const minutes = now.getMinutes()
+        const seconds =  now.getSeconds()
+        const timestring = `${hours}:${minutes}:${seconds}`
+        clock.textContent= timestring
+    }
+
+    setInterval(updClock,1000)
+*/
+
+const time  = document.getElementById('time')
+const start = document.getElementById('start')
+const reset = document.getElementById('reset')
+const pause = document.getElementById('pause')
+
+let startTime = 0
+let elapsedTime = 0
+let isRunning = false
+let paused = false
+
+start.onclick = () => {
+    if(!isRunning){
+        startTime = Date.now() - elapsedTime
+        timer = setInterval(update,10)
+        isRunning = true
+    }
+    if(paused){
+        start.textContent = 'Start'
+    }
+}
+
+reset.onclick = () => {
+    startTime = 0
+    elapsedTime = 0
+    isRunning = false
+    time.innerText=`00:00:00:00`
+    clearInterval(timer)
+}
+
+pause.onclick = () => {
+    isRunning = false
+    if(time.innerText !=='00:00:00:00'){ start.textContent = 'Resume'; paused=true}
+    clearInterval(timer)
+}
+
+function update(){
+    const currentTime = Date.now()
+    elapsedTime = currentTime - startTime
+    let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
+    let minutes = Math.floor(elapsedTime/(1000*60)%60)
+    let seconds = Math.floor(elapsedTime/1000 % 60)
+    let milliseconds = Math.floor(elapsedTime%1000 / 10)
+
+    time.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`
+}

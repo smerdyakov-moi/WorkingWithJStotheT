@@ -1,5 +1,8 @@
-body{
-    background-color: teal;
+*{
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    margin:0
 }
 
 /* (2)-Styling for counter
@@ -82,3 +85,87 @@ body{
         margin:5px;
     }
 */
+
+/* (8) - Time Viewer
+    #clock-container{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+    }
+
+    #clock{
+        font-family: monospace;
+        font-size:6.5rem;
+        font-weight:bold;
+        text-align: center;
+        color:white;
+        backdrop-filter: blur(10px);
+        width:100%
+    }
+*/
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 85);
+}
+#H1{
+    font-size:4rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color: hsla(88, 68%, 4%, 0.689)
+}
+#container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 5px solid;
+    border-radius: 50px;
+    background-color: white;
+}
+#time{
+    font-size:5rem;
+    font-family:monospace;
+    font-weight:bold;
+    color:hsl(0,0%,30%);
+    text-shadow:2px 2px 2px hsla(0, 0%, 0%, 0.772)
+}
+#controls button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#start {
+    background-color: green;
+    font-size: 4rem;
+}
+#reset {
+    background-color: red;
+    font-size: 4rem;
+}
+#pause{
+    background-color: yellow;
+}
+
+#start:hover {
+    background-color: rgb(48, 106, 48);
+    font-size: 3em;
+    
+}
+#reset:hover {
+    background-color: rgb(135, 58, 58);
+    font-size: 3em;
+    
+}
+#pause:hover{
+    background-color: rgb(110, 110, 55);
+    font-size: 3em;
+}
