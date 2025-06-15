@@ -153,7 +153,6 @@
         console.log(element)
     }
 */
-
 /*this keyword
         const person1 = {
         name: 'Pragyan',
@@ -308,5 +307,65 @@
 
     let r1 = new Rectangle(12,13)
     console.log(r1.length) 
+*/
+/* Nested Objects with Class
+    class Address{
+        constructor (city,country){
+            this.city = city
+            this.country = country
+        }
+    }
+
+    class Person{
+        constructor(name,...address){
+            this.name=name
+            this.address = new Address(...address)
+        }
+    }
+
+    let p1  =  new Person("Pragyan","GK","NP")
+    console.log(p1.address.country)
+*/
+/* Closure -  For state maintenance, function defined inside another function
+    function Game(){
+        let score = 0
+        function increaseScore(points){
+            score += points
+            console.log(`+ ${points} points`)
+        }
+        function decreaseScore(points){
+            score-=points
+            console.log(`- ${points} points`)
+        }
+        function currentScore(){
+            return score
+        }
+        return {increaseScore,decreaseScore,currentScore}
+    }
+
+    let game = Game()
+    game.increaseScore(20)
+    game.decreaseScore(20)
+    game.increaseScore(45)
+    game.increaseScore(60)
+
+    console.log(`The current score is ${game.currentScore()}`) //Because we can not access the store variable as it is private
+*/
+
+/* 
+    (7) ----setTimeout functionality ----
+    const prompt = document.getElementById('prompt')
+    const clear = document.getElementById('clear')
+
+    let timeoutid;
+
+    prompt.onclick = () =>{
+        timeoutid = setTimeout(()=>{window.alert('Surprise')},3000)
+        console.log('Begun')
+    }
+    clear.onclick = () =>{
+        clearTimeout(timeoutid)
+        console.log('Interrupted')
+    }
 */
 
