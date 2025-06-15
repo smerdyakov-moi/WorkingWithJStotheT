@@ -409,49 +409,63 @@
     setInterval(updClock,1000)
 */
 
-const time  = document.getElementById('time')
-const start = document.getElementById('start')
-const reset = document.getElementById('reset')
-const pause = document.getElementById('pause')
+/* 
+    ----(9) StopWatch ----
+    const time  = document.getElementById('time')
+    const start = document.getElementById('start')
+    const reset = document.getElementById('reset')
+    const pause = document.getElementById('pause')
 
-let startTime = 0
-let elapsedTime = 0
-let isRunning = false
-let paused = false
+    let startTime = 0
+    let elapsedTime = 0
+    let isRunning = false
+    let paused = false
 
-start.onclick = () => {
-    if(!isRunning){
-        startTime = Date.now() - elapsedTime
-        timer = setInterval(update,10)
-        isRunning = true
+    start.onclick = () => {
+        if(!isRunning){
+            startTime = Date.now() - elapsedTime
+            timer = setInterval(update,10)
+            isRunning = true
+        }
+        if(paused){
+            start.textContent = 'Start'
+        }
     }
-    if(paused){
+
+    reset.onclick = () => {
+        startTime = 0
+        elapsedTime = 0
+        isRunning = false
         start.textContent = 'Start'
+        time.innerText=`00:00:00:00`
+        clearInterval(timer) //for deleting/removing time interval
     }
-}
 
-reset.onclick = () => {
-    startTime = 0
-    elapsedTime = 0
-    isRunning = false
-    start.textContent = 'Start'
-    time.innerText=`00:00:00:00`
-    clearInterval(timer)
-}
+    pause.onclick = () => {
+        isRunning = false
+        if(time.innerText !=='00:00:00:00'){ start.textContent = 'Resume'; paused=true}
+        clearInterval(timer)
+    }
 
-pause.onclick = () => {
-    isRunning = false
-    if(time.innerText !=='00:00:00:00'){ start.textContent = 'Resume'; paused=true}
-    clearInterval(timer)
-}
+    function update(){
+        elapsedTime = Date.now() - startTime
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
+        let minutes = Math.floor(elapsedTime/(1000*60)%60)
+        let seconds = Math.floor(elapsedTime/1000 % 60)
+        let milliseconds = Math.floor(elapsedTime%1000 / 10)
 
-function update(){
-    const currentTime = Date.now()
-    elapsedTime = currentTime - startTime
-    let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
-    let minutes = Math.floor(elapsedTime/(1000*60)%60)
-    let seconds = Math.floor(elapsedTime/1000 % 60)
-    let milliseconds = Math.floor(elapsedTime%1000 / 10)
+        time.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`
+    }
+*/
 
-    time.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`
-}
+/* Async code
+    function f1(callback){
+        setTimeout(()=>{callback(),console.log('Done after 3 seconds')},3000)
+    }
+    display = () =>{
+        console.log('Ye')
+        console.log('Ye')
+        console.log('Ye')
+    }
+    f1(display)
+*/
