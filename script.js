@@ -375,6 +375,26 @@
     p1.increase(20)
     p1.result()
 */
+/*Closure understanding
+    for(let i = 0;i<3;i++){
+    setTimeout(()=>console.log(i),1000)
+}
+//let creates new i for each iteration, and the state of each i is rememberd by the closure, thus we get the output
+
+for(var i = 0;i<3;i++){
+    setTimeout(()=>console.log(i),1000)
+}
+
+//var being function scoped, all iterations of i share same value of  3 by the end before the Timeout is completed, thus by the time we reach the callback, we get 3 printed thrice
+
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), i * 1000);
+}
+/*
+i * 1000 — this part is calculated synchronously, immediately when the loop runs.
+
+setTimeout — schedules the callback asynchronously to run after that delay.*/
 
 /* 
     (7) ----setTimeout functionality ----
@@ -468,4 +488,108 @@
         console.log('Ye')
     }
     f1(display)
+*/
+/* *Genius* take at making classes :
+function makeClass(...properties) {
+    let array =[...properties]
+    return class Animal{
+        constructor(...values){
+            for(let i = 0;i<array.length;i++){
+                this[array[i]]=values[i]
+            }
+        }
+    }
+}*/
+
+/*
+    (10) ---- Calculator ----
+    const display = document.getElementById('display')
+    const errorx = document.getElementById('Error')
+    error = false
+
+    function addtoDisplay(param){
+        if(param==='C'){
+            display.value = null
+        }else{
+            display.value+=param
+        }
+    }
+
+    function calculate(){
+        try{
+            errorx.textContent = null
+            display.value = eval(display.value)
+        }catch(error){
+            errorx.textContent = 'Irregular expression'
+            console.error(err)
+        }
+    }
+*/
+
+/* Element Selectors
+    const fruits = document.getElementsByClassName('fruits')
+
+    Array.from(fruits).forEach(fruit=>{
+        fruit.style.backgroundColor='yellow'
+    }) //This Array.from is known as typecasting (data type conversion) because the 'fruits' while iterable is not truly an array i.e. we can use
+        // for(let fruit of fruits) to change the content
+    const h1s = document.getElementsByTagName('h1')
+    Array.from(h1s).forEach(h1=>{
+        h1.style.color='green'
+    })
+*/
+
+/* DOM Navigation
+    //first/lastElementChild
+//const elements  = document.querySelectorAll('ul')
+//elements.forEach((element)=>element.lastElementChild.style.backgroundColor='pink')
+
+    //next/prevElementSibling
+//const element  = document.getElementById('Food')
+//const next = element.nextElementSibling
+//next.style.backgroundColor='red'
+
+    //parentElement
+//const element = document.getElementById ('k')
+//const parent = element.parentElement
+//parent.style.backgroundColor='yellow'
+
+    //children
+//const element = document.getElementById('Food')
+//const children = element.children
+//for(let i=0;i<children.length;i++){children[i].style.backgroundColor='green'}
+
+*/
+ 
+/* Adding and Changing HTML
+    //Creating,Adding Attributes/Properties, and appending element to DOM
+const newp = document.createElement('p')
+newp.textContent = 'I like games.'
+//let color = window.prompt('Enter your color: ')
+newp.style.color = 'red'
+document.getElementById('box2').append(newp)
+
+
+//newp.textContent='seeyuh'
+//newp.style.textAlign='center'
+//const box2 = document.getElementById('box2')
+//document.body.insertBefore(newp,box2)
+
+//Removing a HTML content 
+
+document.getElementById('box2').removeChild(newp)
+*/
+/* Extras to prev topic
+const newlist = document.createElement('li')
+newlist.textContent = 'Kiwi'
+newlist.style.color = 'red'
+newlist.style.backgroundColor='pink'
+newlist.id = 'Kiwi'
+
+//document.getElementById('fruits').insertBefore(newlist,document.getElementById('orange')) if we have the id
+//Using queryselector for the case where we don't have id
+
+let list = document.querySelectorAll('#veggies li')
+console.log(list)
+document.getElementById('veggies').insertBefore(newlist,list[2])
 */
