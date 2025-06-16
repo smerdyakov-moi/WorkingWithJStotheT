@@ -593,3 +593,28 @@ let list = document.querySelectorAll('#veggies li')
 console.log(list)
 document.getElementById('veggies').insertBefore(newlist,list[2])
 */
+
+/* Event Listener
+    const box = document.getElementById('box')
+    const button = document.getElementById('clicker')
+
+    button.addEventListener("click",(event)=>{
+        box.style.backgroundColor='pink'
+        box.textContent='You clicked me!'
+        event.target.style.backgroundColor='pink'
+        event.target.textContent='You clicked me!'
+    })
+    button.addEventListener("mouseover",(event)=>{
+        box.style.backgroundColor = 'yellow'
+        box.textContent='Click'
+        event.target.style.backgroundColor = 'yellow'
+        event.target.textContent='Click'
+    })
+    button.addEventListener("mouseout",(event)=>{
+        box.textContent='Click Me'
+        box.style.backgroundColor="lightblue"
+        event.target.textContent='Click Me'
+        event.target.style.backgroundColor="lightblue"
+    })
+*/
+
