@@ -803,3 +803,118 @@ function showSlide(i) {
     images[index].classList.add('displayslide')
 }
 */
+
+/* Callback Hell
+function task1(callback){
+    setTimeout(()=>{console.log('Task 1 done.');callback()},2000)
+}
+function task2(callback){
+    setTimeout(()=>{console.log('Task 2 done.');callback()},2000)
+}
+function task3(callback){
+    setTimeout(()=>{console.log('Task 3 done.');callback()},2000)
+}
+function task4(callback){
+    setTimeout(()=>{console.log('Task 4 done.');callback()},2000)
+}
+function task5(callback){
+    setTimeout(()=>{console.log('Task 5 done.');callback()},2000)
+}
+//Callback HELLLLL
+task1(()=>{
+    task2(()=>{
+        task3(()=>{
+            task4(()=>{
+                task5(()=>{
+                    console.log('All done')
+                })
+            })
+        })
+    })
+})
+*/
+
+/* Promises
+function walkdog(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const walkdog = true
+            if(walkdog){resolve('Walk the dog')}
+            else{reject('Didn\'t walk the dog')}
+        },2500)
+    })
+}
+function cleankitchen(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const cleaned = true
+            if(cleaned){resolve('Cleaning Kitchen')}
+            else{reject('Didn\'t clean the kitchen')}
+        },2000)
+    })
+}
+function takeoutrash(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const taketrash =false
+            if(taketrash){resolve('Taking out trash')}
+            else{reject('Didn\'t take out the trash')}
+        },2000)
+    })
+}
+    //Method  Chaining
+walkdog().then(value=>{console.log(value);return cleankitchen()})
+      .then(value=>{console.log(value);return takeoutrash()})
+      .then(value=>{console.log(value);console.log('All chores done!')}) 
+      .catch(error=>{console.log(error);console.log('Didn\'t complete all the chores')})
+*/
+
+/* Async/Await async makes the function return a promise whereas the await makes an async function wait for a promise
+
+function walkdog(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const walkdog = false
+            if(walkdog){resolve('Walk the dog')}
+            else{reject('Didn\'t walk the dog')}
+        },2500)
+    })
+}
+function cleankitchen(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const cleaned = true
+            if(cleaned){resolve('Cleaning Kitchen')}
+            else{reject('Didn\'t clean the kitchen')}
+        },2000)
+    })
+}
+function takeoutrash(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const taketrash =true
+            if(taketrash){resolve('Taking out trash')}
+            else{reject('Didn\'t take out the trash')}
+        },2000)
+    })
+}
+
+async function dochores(){
+   
+    try{
+        const walkdogresult = await walkdog()
+        console.log(walkdogresult)
+         
+        const cleankitchenresult = await cleankitchen()
+        console.log(cleankitchenresult)
+        const takeoutrashresult = await takeoutrash()
+        console.log(takeoutrashresult)
+    }catch(err){ //this handles when we are not able to resolve a promise and the promises are rejected
+        console.error(err)
+    }
+}
+dochores()
+
+*/
+
+
