@@ -284,3 +284,39 @@ body{
     text-align: center;
 }
 */
+
+/* Key Event
+    #box{
+    background-color: lightblue;
+    width:300px;
+    height:300px;
+    font-size: 4.5rem;
+    font-weight:bold;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+*/
+
+/* # mybutton for the first part*/
+
+.mybutton{
+    font-size:4rem;
+    margin:10px;
+    border:none;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+.enabled{
+    background-color: aqua;
+    color:white
+}
+.x{
+    box-shadow: 0 0 10px red;
+    font-weight:bold;    
+}
+.disabled{
+    background-color: pink;
+}

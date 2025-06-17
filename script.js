@@ -618,3 +618,101 @@ document.getElementById('veggies').insertBefore(newlist,list[2])
     })
 */
 
+/* Key Events - Only fire on elements that can be focused or document<which  listens globally>
+const box = document.getElementById('box')
+const moveAmount = 20
+let [x,y]=[0,0]
+ 
+document.addEventListener('keydown',event=>{
+    if(event.key.startsWith('Arrow')){
+        event.preventDefault()
+        switch(event.key){
+            case 'ArrowUp':
+                y-=moveAmount
+                break;
+            case 'ArrowDown':
+                y+=moveAmount
+                break;
+            case 'ArrowLeft':
+                x-=moveAmount
+                break;
+            case 'ArrowRight':
+                x+=moveAmount
+                break;
+        }
+    box.style.top= `${y}px`
+    box.style.left = `${x}px`
+    }
+})
+*/
+
+/* Hide/Show Element
+const btn = document.getElementById('button')
+const img = document.getElementsByTagName('img')
+
+btn.addEventListener('click',event=>{
+    if(img[0].style.display==='none'){
+        img[0].style.display ='block'
+        btn.textContent = 'Hide'
+    }else{
+        btn.textContent = 'Hidden'
+        img[0].style.display = 'none'
+    }
+})
+*/
+
+/* NodeList and How We have to Manually Update the nodelist
+let buttons = document.querySelectorAll('.mybutton')
+//const newbtn = document.createElement('button')
+//newbtn.textContent = '5'
+//newbtn.classList = 'mybutton'
+//document.body.append(newbtn)
+
+//buttons = document.querySelectorAll('.mybutton') //This manual update will only change the nodelist's length to five
+//console.log(buttons) //Here the buttons length doesn't change to 5 because nodelists are static and they do not automatically update 
+
+//buttons.forEach(button=>{
+  //  button.addEventListener('click',event=>{
+    //    event.target.remove()
+     //   buttons = document.querySelectorAll('.mybutton')
+      //  console.log(buttons)
+    //})
+//})
+*/
+
+/* Class List and their properties
+    (PT.1)
+const btn = document.getElementById('mybutton')
+btn.classList.add('enabled')
+btn.addEventListener('mouseover',event=>{
+    event.target.classList.add('x')
+    btn.classList.add('enabled')
+    event.target.textContent = 'Button'
+})
+btn.addEventListener('mouseout',event=>{
+    event.target.classList.remove('x')
+    event.target.classList.replace('disabled','enabled')
+    event.target.textContent = 'Button'
+})
+btn,addEventListener('click',event=>{
+    event.target.textContent='Clicked'
+    event.target.classList.replace('enabled','disabled')
+})*/
+
+let buttons = document.querySelectorAll('.mybutton')
+buttons.forEach(button=>{
+    button.classList.add('enabled')
+    button.addEventListener('mouseover',event=>{
+        event.target.classList.toggle('x')
+    })
+    button.addEventListener('mouseout',event=>{
+        event.target.classList.toggle('x')
+    })
+    button.addEventListener('click',event=>{
+        if(event.target.classList.contains('disabled')){
+            event.target.classList.replace('disabled','enabled')
+        }else{
+             event.target.classList.replace('enabled','disabled')
+        }
+    })
+})
