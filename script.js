@@ -697,8 +697,8 @@ btn.addEventListener('mouseout',event=>{
 btn,addEventListener('click',event=>{
     event.target.textContent='Clicked'
     event.target.classList.replace('enabled','disabled')
-})*/
-
+})
+   (PT. 2)
 let buttons = document.querySelectorAll('.mybutton')
 buttons.forEach(button=>{
     button.classList.add('enabled')
@@ -716,3 +716,90 @@ buttons.forEach(button=>{
         }
     })
 })
+    
+*/
+
+/* 
+    (11) ---- Rock Paper Scissor ----
+let choices = ['rock','paper','scissor']
+
+const playerDisplay = document.getElementById('playerdisplay')
+const computerDisplay = document.getElementById('computerdisplay')
+const resultDisplay = document.getElementById('result')
+
+const win = document.getElementById('wins')
+const loss = document.getElementById('losses')
+const tie = document.getElementById('ties')
+
+
+
+function playGame(userchoice) {
+    const computerChoice = choices[Math.floor(Math.random() * 3)]
+
+    playerDisplay.textContent = `You chose: ${userchoice}`
+    computerDisplay.textContent = `Computer chose: ${computerChoice}`
+
+    resultDisplay.classList.remove('greenText', 'redText', 'greyText')
+
+    if (userchoice === computerChoice) {
+        tie.textContent = (Number(tie.textContent) + 1).toString()
+        resultDisplay.textContent = 'A TIE'
+        resultDisplay.classList.add('greyText')
+    } else {
+        switch (userchoice) {
+            case 'rock':
+                resultDisplay.textContent = (computerChoice === 'scissor') ? 'YOU WIN' : 'YOU LOSE'
+                break
+            case 'paper':
+                resultDisplay.textContent = (computerChoice === 'rock') ? 'YOU WIN' : 'YOU LOSE'
+                break
+            case 'scissor':
+                resultDisplay.textContent = (computerChoice === 'paper') ? 'YOU WIN' : 'YOU LOSE'
+                break
+        }
+
+        if (resultDisplay.textContent === 'YOU WIN') {
+            win.textContent = (Number(win.textContent) + 1).toString()
+            resultDisplay.classList.add('greenText')
+        } else {
+            loss.textContent = (Number(loss.textContent) + 1).toString()
+            resultDisplay.classList.add('redText')
+        }
+    }
+}
+*/
+
+/* 
+    (12) ---- Image Slider ----
+const images = document.querySelectorAll('.slides img')
+let index  = 0 
+let intervalid  = null
+
+document.addEventListener('DOMContentLoaded',initialize)
+
+function initialize() {
+    images[index].classList.add('displayslide')
+}
+
+function nextSlide() {
+    index++
+    showSlide(index)
+}
+
+function prevSlide() {
+    index--
+    showSlide(index)
+}
+
+function showSlide(i) {
+    if (i < 0) index = images.length - 1
+    else if (i >= images.length) index = 0
+    else index = i
+
+    images.forEach(image => {
+        image.classList.remove('displayslide')
+    })
+
+    images[index].classList.add('displayslide')
+}
+*/

@@ -5,7 +5,7 @@
     margin:0
 }
 
-/* (2)-Styling for counter
+/* (2) - Styling for counter
 #count{
     display: block;
     text-align: center;
@@ -101,7 +101,7 @@
         width:100%
     }
 */
-/*  (9) StopWatch
+/*  (9) - StopWatch
 body{
     display: flex;
     flex-direction: column;
@@ -166,7 +166,7 @@ body{
     background-color: rgb(110, 110, 55);
     font-size: 3em;
 }*/
-/* (10) Calculator
+/* (10) - Calculator
     
  body {
         background-color: #f0f4f8;
@@ -300,8 +300,8 @@ body{
 }
 */
 
-/* # mybutton for the first part*/
-
+/* Class List
+    /* # mybutton for the first part
 .mybutton{
     font-size:4rem;
     margin:10px;
@@ -320,3 +320,117 @@ body{
 .disabled{
     background-color: pink;
 }
+*/
+
+/* (11) - Rock Paper Scissor
+body {
+    background: #f0f8ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 50px;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1e90ff;
+    margin-bottom: 40px;
+}
+
+#choices button {
+    font-size: 3rem;
+    margin: 10px;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#choices button:hover {
+    transform: scale(1.1);
+    background-color: #dbefff;
+}
+
+#playerdisplay, #computerdisplay, #result {
+    font-size: 1.5rem;
+    margin-top: 25px;
+}
+
+#result {
+    font-weight: bold;
+
+    font-size: 2rem;
+    margin-top: 30px;
+}
+
+#scoreboard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffffdd;
+    border: 2px solid #1e90ff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#scoreboard div {
+    margin-bottom: 5px;
+}
+.greenText{
+    color:green
+}
+.redText{
+    color:red
+}
+.greyText{
+    color:grey
+}*/
+
+/* (12) - Image Slider
+.slider {
+    position: relative;
+    max-width: 800px;
+    height: 800px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+img.displayslide {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+*/
