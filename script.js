@@ -917,4 +917,38 @@ dochores()
 
 */
 
+/* (13) ---- Basic Movie Search API ----
 
+const apiKey = '4652f9e64079fcd655bf88e973491202'
+const h2 = document.createElement('h2')
+async function  getData(params) {
+    const input = document.getElementById('movie')
+    const img = document.getElementById('result')
+    try{
+      let found = false
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(input.value.trim())}`)
+        if (!response.ok) throw new Error(`API responded with error ${response.status}`)
+        const value = await response.json()  
+        console.log(value)
+        value.results.forEach(result => {
+            if (result.original_title === input.value.trim()) {
+                img.src = `https://image.tmdb.org/t/p/original${result.poster_path}`
+                found = true
+                input.value = ''
+        }
+    })
+        if (!found) {
+            h2.textContent = 'Not found'
+            img.style.display='none'
+            document.body.append(h2)
+        }else{
+            h2.textContent=''
+            img.style.display = 'block'
+                img.style.width = '300px'
+                img.style.height = '300px'
+        }
+    }catch(err){
+        console.error(err)
+    }
+}
+*/
