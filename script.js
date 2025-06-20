@@ -953,3 +953,73 @@ async function  getData(params) {
 }
 */
 
+/*Promise.all method -> resolves/rejects the arrays of promises saving time [also rejects when needed]
+function first(){
+    return new Promise((resolve, reject) => {setTimeout(()=>{
+        resolve('Done1')
+    },2000)})
+}
+
+function  second(){ 
+    return new Promise((resolve,reject)=>{setTimeout(()=>{
+        resolve('Done2')
+    },2000)})
+}
+
+function third(){
+    return new Promise((resolve,reject)=>{setTimeout(()=>{
+        reject('Not Done')
+    },2000)})
+}
+
+Promise.all([first(),second(),third()]).then((values)=>{
+    console.log(values)
+}).catch((error)=>{console.error(error)})
+*/
+
+/* Another way to await promises
+async function dochores(){
+    try{
+        const data = await new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('Resolved')
+            },2000)
+        })   
+        console.log(data)
+    }catch(error){
+        console.error(`Error: ${error}`)
+    }
+}
+
+dochores()
+*/
+
+/* Important Async/Await CodeWars Solutiom
+    Async functions return a promise (whether it be resolved or rejected)
+    In this code, we don't use try..catch because the answer explicitly wants a legitimate string or a rejected promise, not to  catch the error
+    when rejected right away
+async function sayJoke(apiUrl, jokeId) {
+  const response = await fetch(apiUrl)
+  const data = await response.json()
+
+  if (!data || !Array.isArray(data.jokes)) {
+    return Promise.reject(Error(`No jokes at url: ${apiUrl}`))
+  }
+
+  const joke = data.jokes.find(j => j.id === jokeId)
+
+  if (!joke) {
+    return Promise.reject(Error(`No jokes found id: ${jokeId}`))
+  }
+
+  return {
+    saySetup() {
+      return joke.setup
+    },
+    sayPunchLine() {
+      return joke.punchLine
+    }
+  }
+}
+*/
+
