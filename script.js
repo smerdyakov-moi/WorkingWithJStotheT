@@ -951,6 +951,22 @@ async function  getData(params) {
         console.error(err)
     }
 }
+
+Another method to do it without using await:
+let found = false
+        await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(input.value.trim())}`)
+                                    .then(value=>value.json())
+                                    .then((value)=>{
+                                                value.results.forEach(result => {
+                                                    if (result.original_title === input.value.trim()) {
+                                                        img.src = `https://image.tmdb.org/t/p/original${result.poster_path}`
+                                                        found = true
+                                                        input.value = ''
+                                            }
+                                    })
+  
+        
+        })
 */
 
 /*Promise.all method -> resolves/rejects the arrays of promises saving time [also rejects when needed]
@@ -1022,4 +1038,3 @@ async function sayJoke(apiUrl, jokeId) {
   }
 }
 */
-
