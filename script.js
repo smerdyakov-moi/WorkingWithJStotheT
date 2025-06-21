@@ -1038,3 +1038,82 @@ async function sayJoke(apiUrl, jokeId) {
   }
 }
 */
+
+/* Prototypal inheritance
+let array= [1,2,3]
+
+Array.prototype.mycase = function(){
+    for(let i =0 ;i<this.length;i++){
+        this[i] = this[i]*2
+    }
+}
+
+array.mycase()
+console.log(array)
+
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.sayHello = function() {
+  console.log(`Hi, I'm ${this.name}`);
+};
+
+const alice = new Person('Alice');
+console.log(alice.__proto__ === Person.prototype)
+*/
+
+/* Factory Functions
+function createElement(type,text,color){
+    const element = document.createElement(type)
+    document.body.append(element)
+    element.innerText = text
+    element.style.color = color
+    return{
+        element,
+        settertext:function(newText){
+            element.innerText=newText
+        }
+    }
+}
+const element = createElement('p','Seweya','red')
+element.settertext('Inappropriate language')
+*/
+
+/*Constructor method of creating element as opposed to the factory function above 
+function createElement(type,text,color){
+    this.element = document.createElement(type)
+    this.element.innerText = text
+    this.element.style.color = color
+    this.element.addEventListener('click',event=>{
+        console.log('Clicked')
+    })
+      document.body.appendChild(this.element)
+    this.setterText = (text)=>{
+        this.element.innerText = text
+    }
+}
+const p1 =new createElement('h1','The beautiful sunshine','red')
+console.log(p1)
+*/
+
+/* Object.create() — creates a new object using an existing object as its prototype.
+It’s often used as a workaround for factory functions to set up prototype inheritance.
+
+const myprototype  = {
+    talk(){
+        console.log(`My name is ${this.name}`)
+    }
+}
+
+function createperson(name){
+    const obj = Object.create(myprototype)
+    obj.name = name
+    return obj
+}
+
+const person = createperson('Pragyan')
+console.log(person.name)  // Pragyan
+
+console.log(Object.getPrototypeOf(person) === myprototype)  
+console.log(person.__proto__ === myprototype)              
+*/
