@@ -1117,3 +1117,4 @@ console.log(person.name)  // Pragyan
 console.log(Object.getPrototypeOf(person) === myprototype)  
 console.log(person.__proto__ === myprototype)              
 */
+
