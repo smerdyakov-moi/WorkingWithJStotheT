@@ -1118,3 +1118,24 @@ console.log(Object.getPrototypeOf(person) === myprototype)
 console.log(person.__proto__ === myprototype)              
 */
 
+/*Function Instance and Avoiding the 'new' keyword
+function person(name,age){
+    this.name=name
+    this.age=age
+}
+person.prototype.display = function(){
+    console.log(`You are ${this.name} and you are ${this.age} years old.`)
+}
+function personmaker(person){
+    console.log(...arguments)
+    const obj = Object.create(person.prototype)
+    person.call(obj, ...[...arguments].slice(1)) //person.apply(obj,Array.prototype.slice.call(arguments,1)) I prefer the call because its easier
+                                                // to write with less function instances
+    return obj
+}
+
+let p1 = personmaker(person,'Pragyan',20)
+p1.display()
+
+*/
+
