@@ -1139,3 +1139,45 @@ p1.display()
 
 */
 
+/* Private Variable Factory
+const funcs = {
+    talk(){
+        return `Your name is ${this.getName()}`
+    }
+}
+
+function person(name){
+    let _name = name // private variable
+
+    const obj = Object.create(funcs)
+    
+    obj.getName = function() {
+        return _name
+    }
+
+    return obj
+}
+
+const p1 = person('Pragyaan')
+console.log(p1)
+console.log(p1.name)       // undefined (private)
+console.log(p1.getName())  // Pragyaan
+console.log(p1.talk())     // Your name is Pragyaan
+*/
+
+/* Private Constructor Varibale
+function person(name){
+    let namex = name
+    this.definer = function(){
+        return namex
+    }
+
+}
+
+person.prototype.display = function(){
+    console.log(`My name is ${this.definer()}`)
+}
+
+const p1 = new person('Pragyan')
+console.log(p1.__proto__ === person.prototype)
+*/
