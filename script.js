@@ -599,9 +599,9 @@ document.getElementById('veggies').insertBefore(newlist,list[2])
     const button = document.getElementById('clicker')
 
     button.addEventListener("click",(event)=>{
-        box.style.backgroundColor='pink'
+        box.style.backgroundColor='pink' //for the box
         box.textContent='You clicked me!'
-        event.target.style.backgroundColor='pink'
+        event.target.style.backgroundColor='pink' //for the button because it's the event being target
         event.target.textContent='You clicked me!'
     })
     button.addEventListener("mouseover",(event)=>{
@@ -1181,3 +1181,12 @@ person.prototype.display = function(){
 const p1 = new person('Pragyan')
 console.log(p1.__proto__ === person.prototype)
 */
+
+function SubstitutionCipher(abc1, abc2) {
+  this.encode = function (str) {
+    
+  }
+  this.decode = function (str) {
+    
+  }
+}
