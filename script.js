@@ -1060,8 +1060,7 @@ Person.prototype.sayHello = function() {
 
 const alice = new Person('Alice');
 console.log(alice.__proto__ === Person.prototype)
-*/
-
+*
 /* Factory Functions
 function createElement(type,text,color){
     const element = document.createElement(type)
@@ -1195,6 +1194,7 @@ function saylanguage(language){
 const know = saylanguage('EN')
 console.log(know('Pragyan'))
 */
+
 /* Currying
 function printTotal(sign){
     return function(amount){
