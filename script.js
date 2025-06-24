@@ -1182,11 +1182,26 @@ const p1 = new person('Pragyan')
 console.log(p1.__proto__ === person.prototype)
 */
 
-function SubstitutionCipher(abc1, abc2) {
-  this.encode = function (str) {
-    
-  }
-  this.decode = function (str) {
-    
-  }
+/*  First Class Functions
+function saylanguage(language){
+    return function (name){ //returns the function
+        if(language ==='EN'){
+            return (`Hello ${name}`)
+         }else{
+            return(`Namaste Hajur ${name}`)
+         }
+    }
 }
+const know = saylanguage('EN')
+console.log(know('Pragyan'))
+*/
+/* Currying
+function printTotal(sign){
+    return function(amount){
+        return `${sign}${amount}`
+    }
+}
+const usTotal = printTotal('$')
+console.log(usTotal(100))
+console.log(usTotal(200))*/
+
