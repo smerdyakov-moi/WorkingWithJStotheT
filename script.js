@@ -1205,3 +1205,15 @@ const usTotal = printTotal('$')
 console.log(usTotal(100))
 console.log(usTotal(200))*/
 
+/* Critical Closure Concept
+function fact(fn){
+    let called = false
+    return function(){
+        if(!called){
+            called=true
+            return fn.apply(null,arguments)
+        }else{
+            return undefined
+        }
+    }
+}*/
