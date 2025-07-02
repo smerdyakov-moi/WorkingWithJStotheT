@@ -1217,3 +1217,49 @@ function fact(fn){
         }
     }
 }*/
+
+
+function getPermutations(num) {
+  const str = num.toString();
+  const result = [];
+
+  function permute(arr, m = '') {
+    if (arr.length === 0) {
+      result.push(Number(m));
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        let curr = arr.slice();
+        let next = curr.splice(i, 1);
+        permute(curr, m + next);
+      }
+    }
+  }
+  permute(str.split(''));
+  return [...new Set(result)]; 
+}
+
+function isPerfectSquare(num) {
+  if (num < 0) return false;
+  if (num === 0 || num === 1) return true;
+
+  const sqrt = Math.sqrt(num);
+  const floorSqrt = Math.floor(sqrt);
+  return floorSqrt * floorSqrt === num;
+}
+
+
+function sortByPerfsq(arr) {
+    let output = []
+    for(let i  = 0 ; i  < arr.length ; i  ++ ){
+        let perm =  getPermutations(arr[i])
+        let n = 0
+        for(let i = 0  ; i < perm.length ; i ++){
+                if(isPerfectSquare(perm[i])){
+                    n++
+                }
+        }
+        output.push([arr[i],n])
+    }
+    return output.sort((a,b)=>b[1]-a[1] || a[0]-b[0]).map(v=>v[0])
+}
+console.log(sortByPerfsq([234, 61, 16, 441, 144, 728]))
