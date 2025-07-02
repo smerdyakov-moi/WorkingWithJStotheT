@@ -1218,6 +1218,7 @@ function fact(fn){
     }
 }*/
 
+/*  Sorting Comparator +  Not needed Set
 
 function getPermutations(num) {
   const str = num.toString();
@@ -1263,3 +1264,4 @@ function sortByPerfsq(arr) {
     return output.sort((a,b)=>b[1]-a[1] || a[0]-b[0]).map(v=>v[0])
 }
 console.log(sortByPerfsq([234, 61, 16, 441, 144, 728]))
+*/
